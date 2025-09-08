@@ -21,7 +21,6 @@ const ChidoriUrlShortener = () => {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [showHistory, setShowHistory] = useState(false);
 
-  // encurtar URL via API
   const shortenUrl = async () => {
     if (!url.trim()) return;
     setIsShortening(true);
@@ -40,8 +39,6 @@ const ChidoriUrlShortener = () => {
 
       const data = await response.json();
 
-      // A API retorna só a string (short_code ou url encurtada)?
-      // Vou assumir que retorna o código encurtado
       const newUrl: ShortenedUrl = {
         id: Date.now().toString(),
         original: url,
@@ -253,7 +250,6 @@ const ChidoriUrlShortener = () => {
           )}
         </div>
 
-        {/* Footer */}
         <div className="text-center mt-12">
           <p className="text-gray-400 text-sm">
             Feito com ⚡ pelo <span className="text-blue-400 font-semibold">Grupo 7</span>
