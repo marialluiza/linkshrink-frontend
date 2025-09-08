@@ -93,14 +93,14 @@ const ChidoriUrlShortener = () => {
           <div className="flex items-center justify-center mb-4">
             <Zap className="w-8 h-8 text-blue-400 mr-3 animate-pulse" />
             <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              Chidori Link
+              Linkshrink
             </h1>
             <Zap className="w-8 h-8 text-purple-400 ml-3 animate-pulse delay-500" />
           </div>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Acelere seus links com a velocidade do raio ⚡
+            Encurtador de links simples e rápido.
             <br />
-            <span className="text-sm text-blue-400">{"// Grupo 7 - Velocidade Ninja"}</span>
+
           </p>
 
           {/* Error Message */}
@@ -248,16 +248,6 @@ const ChidoriUrlShortener = () => {
               </div>
             </div>
           )}
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-gray-400 text-sm">
-            Feito com ⚡ pelo <span className="text-blue-400 font-semibold">Grupo 7</span>
-            <br />
-            <span className="text-xs text-gray-500">
-              {"\"A velocidade do Chidori para seus links\""}
-            </span>
-          </p>
         </div>
       </div>
     </div>
