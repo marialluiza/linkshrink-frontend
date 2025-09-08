@@ -11,7 +11,7 @@ interface ShortenedUrl {
   clicks: number;
 }
 
-const API_BASE = "https://url-shortener-api-aeqm.onrender.com/";
+const API_BASE = "https://url-shortener-api-aeqm.onrender.com";
 
 const ChidoriUrlShortener = () => {
   const [url, setUrl] = useState("");
