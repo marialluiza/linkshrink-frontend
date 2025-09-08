@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Copy, Link, Zap, History, ExternalLink, Trash2 } from "lucide-react";
+import BackgroundEffects from "@/components/BackgroundEffects";
 
 interface ShortenedUrl {
   id: string;
@@ -38,14 +39,17 @@ const ChidoriUrlShortener = () => {
       }
 
       const data = await response.json();
+      console.log("Resposta da API:", data);
 
       const newUrl: ShortenedUrl = {
         id: Date.now().toString(),
         original: url,
-        shortened: `${API_BASE}/${data}`, // monta URL final
+        shortened: data.short_url,
         createdAt: new Date().toLocaleString(),
         clicks: 0,
       };
+
+      console.log("URL encurtada com sucesso:", newUrl);
 
       setShortenedUrls((prev) => [newUrl, ...prev]);
       setUrl("");
@@ -80,12 +84,8 @@ const ChidoriUrlShortener = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
-      {/* Efeito de raios de fundo */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-64 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-48 h-1 bg-gradient-to-r from-transparent via-purple-400 to-transparent animate-pulse delay-300"></div>
-        <div className="absolute bottom-32 left-1/4 w-56 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse delay-700"></div>
-      </div>
+
+      <BackgroundEffects />
 
       <div className="relative z-10 container mx-auto px-4 py-8">
         {/* Header */}
@@ -97,10 +97,10 @@ const ChidoriUrlShortener = () => {
             </h1>
             <Zap className="w-8 h-8 text-purple-400 ml-3 animate-pulse delay-500" />
           </div>
+
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Encurtador de links simples e rápido.
             <br />
-
           </p>
 
           {/* Error Message */}
